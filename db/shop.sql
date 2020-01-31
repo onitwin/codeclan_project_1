@@ -1,0 +1,2 @@
+--two tables to go here--
+--manufacturer and stock items--
