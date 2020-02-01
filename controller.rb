@@ -6,7 +6,6 @@ require_relative('./models/manufacturer')
 also_reload( '/models/*' )
 
 get "/" do
-  @stock=Stock.all
   erb(:index)
 end
 
@@ -16,5 +15,6 @@ get '/stock' do
 end
 
 get '/manufacturers' do
+  @manufacturers=Manufacturer.all
   erb(:manufacturers)
 end

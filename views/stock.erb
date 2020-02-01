@@ -1,5 +1,11 @@
 <h1> ITEMS OF STOCK</h1>
 
+<% for stock in @stock%>
+<%pass=1%>
+<% if pass %2 !=0%>
 
+<p style="background-color:#00ced1;">Item Name:<%=stock.name %></p>
+<%pass +1%>
+<%end%>
 
-<p>Item Name:</p>
+<% end %>
