@@ -14,9 +14,10 @@ CREATE TABLE stock_items(
   name VARCHAR(255),
   manufacturer_id INT REFERENCES manufacturers(id),
   type VARCHAR (255),
+  bsl INT, --basic stock level abbreviation
   quantity INT,
   unit_cost FLOAT,
-  sell_cost FLOAT,
+  sell_price FLOAT,
   description VARCHAR (255),
   url VARCHAR
 )
