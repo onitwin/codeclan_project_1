@@ -11,6 +11,7 @@ CREATE TABLE manufacturers(
 
 CREATE TABLE stock_items(
   id SERIAL PRIMARY KEY,
+  name VARCHAR(255),
   manufacturer_id INT REFERENCES manufacturers(id),
   type VARCHAR (255),
   quantity INT,
