@@ -60,7 +60,7 @@ class Stock
 
   #UPDATE METHOD
 
-  def update
+  def update #successful update of details
     sql='UPDATE stock_items SET (name,manufacturer_id,type,bsl,quantity,
     unit_cost,sell_price,description,url) = ($1,$2,$3,$4,$5,
     $6,$7,$8,$9)WHERE id=$10'
@@ -69,6 +69,8 @@ class Stock
     SqlRunner.run(sql,values)
   end
 
+
+#ALL BASIC CRUD METHODS COMPLETE
 
 
 
