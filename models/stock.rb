@@ -19,7 +19,9 @@ class Stock
 
   end
 
-  def save
+  #CREATE METHOD
+
+  def save #success- save works
     sql="INSERT INTO stock_items (name,manufacturer_id,type,bsl,quantity,
     unit_cost,sell_price,description,url) VALUES($1,$2,$3,$4,$5,$6,$7,$8,$9) RETURNING id"
     values=[@name,@manufacturer_id,@type,@bsl,@quantity,@unit_cost,@sell_price,
@@ -27,6 +29,38 @@ class Stock
     results=SqlRunner.run(sql,values)
     @id=results.first['id'].to_i
   end
+
+  #READ METHODS
+
+  def self.all #success- returns all items from stock
+    sql='SELECT * FROM stock_items'
+    results=SqlRunner.run(sql)
+    return results.map{|item|Stock.new(item)}
+  end
+
+  def find #success- returns item details using id as reference
+    sql='SELECT * FROM stock_items WHERE id=$1'
+    values=[@id]
+    result=SqlRunner.run(sql,values)
+    return result
+  end
+
+  #DELETE METHODS
+
+  def self.delete_all #succesful- deletes all items from stock
+    sql='DELETE FROM stock_items'
+    SqlRunner.run(sql)
+  end
+
+  def delete #successful- deletes single item from stock
+    sql='DELETE FROM stock_items WHERE id=$1'
+    values=[@id]
+    SqlRunner.run(sql,values)
+  end
+
+
+
+
 
 
 
