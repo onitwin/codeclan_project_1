@@ -29,14 +29,14 @@ class Manufacturer
     return results.map{|manufacturer|Manufacturer.new(manufacturer)}
   end
 
-  def me #success- returns single object matching id that was called
+  def find #success- returns single object matching id that was called
     sql='SELECT * FROM manufacturers WHERE id=$1'
     values=[@id]
     result=SqlRunner.run(sql,values)
     return result
   end
 
-  def all_of_me #success- returns ONLY results from table matching a single manufacturer
+  def find_by_name #success- returns ONLY results from table matching a single manufacturer
     sql='SELECT * FROM manufacturers WHERE name=$1'
     values=[@name]
     result=SqlRunner.run(sql,values)
@@ -50,23 +50,27 @@ class Manufacturer
     SqlRunner.run(sql)
   end
 
-  def delete
+  def delete()#successful- deletes self method
     sql='DELETE FROM manufacturers WHERE id=$1'
     values=[@id]
     SqlRunner.run(sql,values)
   end
 
-  #UPDATE METHOD
+  def delete_by_brand()#succes- removes all manufacturers of chosen name
+    sql='DELETE  FROM manufacturers WHERE name=$1'
+    values=[@name]
+    SqlRunner.run(sql,values)
+  end
 
+  #UPDATE METHOD GOES HERE
+  def update() #succesful- updates SQL database
+    sql='UPDATE manufacturers SET (name,active)=($1,$2)
+    WHERE id=$3'
+    values=[@name,@active,@id]
+    SqlRunner.run(sql,values)
+  end
 
-
-
-
-
-
-
-
-
+#ALL BASIC CRUD METHODS COMPLETE
 
 
 
