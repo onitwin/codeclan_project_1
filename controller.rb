@@ -18,3 +18,23 @@ get '/manufacturers' do
   @manufacturers=Manufacturer.all
   erb(:manufacturers)
 end
+
+get '/stock/:id' do
+  x = params[:id]
+  @stock=Stock.find(x)
+  erb(:view_item)
+end
+
+get '/stock/:id/update' do
+  x = params[:id]
+  @stock=Stock.find(x)
+  erb(:update)
+end
+
+post '/stock/:id/update' do
+  x=params[:id]
+  stock=Stock.new(x)
+  stock.id=params[:id]
+  stock.update
+  erb(:updated)
+end

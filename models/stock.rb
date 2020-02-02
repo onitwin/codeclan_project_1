@@ -2,7 +2,7 @@ require_relative('../db/sql_runner')
 
 class Stock
 
-  attr_accessor :id, :name,:manufacturer_id,:type,
+  attr_accessor :id, :name,:manufacturer_id,:type,:bsl,
   :quantity,:unit_cost,:sell_price,:description,:url
 
   def initialize(options)
@@ -38,10 +38,11 @@ class Stock
     return results.map{|item|Stock.new(item)}
   end
 
-  def find #success- returns item details using id as reference
+  def self.find (id)#updated
     sql='SELECT * FROM stock_items WHERE id=$1'
-    values=[@id]
-    result=SqlRunner.run(sql,values)
+    values=[id]
+    request=SqlRunner.run(sql,values)
+    result=Stock.new(request.first)
     return result
   end
 
@@ -72,6 +73,14 @@ class Stock
 
 #ALL BASIC CRUD METHODS COMPLETE
 
+
+# def manu
+#   sql="SELECT name FROM manufacturers WHERE id=$1"
+#   values=[@manufacturer_id]
+#   results=SqlRunner.run(sql,values)
+#   hash=Manufacturer.new(results)
+#   return hash.name
+# end
 
 
 

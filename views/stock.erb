@@ -1,11 +1,29 @@
 <h1> ITEMS OF STOCK</h1>
 
-<% for stock in @stock%>
-<%pass=1%>
-<% if pass %2 !=0%>
 
-<p style="background-color:#00ced1;">Item Name:<%=stock.name %></p>
-<%pass +1%>
-<%end%>
+<table class="row" id='stock table'>
+  <caption><h2>STOCK IN STORE</h2>
+    <tr>
+    <th>ITEM NAME</th>
+    <th>MANUFACTURER</th>
+    <th>CLASSIFICATION</th>
+    <th>STOCK-ON-HAND</th>
+    <th>UNIT COST</th>
+    <th>SELL PRICE</th>
+    <th>VIEW ITEM</th>
+  </tr>
+  <% for stock in @stock%>
+  <tr>
+    <td><%=stock.name %></td>
+    <td><%=stock.manufacturer_id%></td>
+    <td><%=stock.type%></td>
+    <td><%=stock.quantity%></td>
+    <td><%=stock.unit_cost%></td>
+    <td><%=stock.sell_price%></td>
+      <td><a href='/stock/<%=stock.id%>'>View Item Detail</td>
 
-<% end %>
+  </tr>
+  <% end %>
+
+
+</table>

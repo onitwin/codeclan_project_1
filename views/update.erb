@@ -1,0 +1,30 @@
+<h1>PLACEHOLDER TEXT- have checked and item details have loaded</h1>
+
+<form method='post' action="/stock/<%=@stock.id%>/update">
+  <label for="name">Update Item Name</label>
+  <input id="name" type="text" name="name"
+  value= "<%=@stock.name%>">
+  <br>
+  <label for='manufacturer'> Update Manufacturer</label>
+  <input id='manufacturer' type='text' name='manufacturer' value='<%=@stock.manufacturer_id%>'>
+  <br>
+  <label for ='type'>Item Type</label>
+  <input id='type' type='text' name='type' value='<%=@stock.type%>'>
+  <br>
+  <label for='quantity'>Quantity Held</label>
+  <input id='quantity' type='numbers' min='0' name='quantity' value='<%=@stock.quantity%>'>
+  <br>
+  <label for 'unit cost'>Cost Per Unit</label>
+  <input id='unit cost' type='text' name='unit_cost' value='<%=@stock.unit_cost%>'>
+  <br>
+  <label for='sell price'>Price to customer</label>
+  <input id='sell price' type='text' name='sell_price' value='<%=@stock.sell_price%>'>
+  <br>
+  <label for ='description'>Item Description</label>
+  <input id='description' type='text' maxlength='255' name='description' value='<%=@stock.description%>'>
+  <br>
+  <label for='url'>URL</label>
+  <input id='url' type='text' name='url' value='<%=@stock.url%>'>
+  <br>
+  <input type='submit' value='SUBMIT CHANGES'
+</form>

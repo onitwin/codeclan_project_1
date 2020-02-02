@@ -1,3 +1,22 @@
 body{
   background-color: silver;
 }
+
+li{
+  display:inline-block;
+  margin-left: 30px;
+}
+
+h3{
+  border:3pt solid black;
+  overflow: scroll;
+}
+
+.details{
+  background-color: red;
+}
+
+table{
+  border: 1pt,solid black;
+  overflow: scroll;
+}
