@@ -3,7 +3,7 @@ require( 'sinatra/contrib/all' )
 require( 'pry-byebug' )
 require_relative('./models/stock')
 require_relative('./models/manufacturer')
-also_reload( '/models/*' )
+also_reload( './models/*' )
 
 get "/" do
   erb(:index)
@@ -14,14 +14,6 @@ get '/stock' do
   erb(:stock)
 end
 
-get '/stock/addstock' do
-  erb(:addstock)
-end
-
-post '/stock/addstock' do
-  @stock=Stock.new(params)
-  @stock.save
-end
 
 get '/manufacturers' do
   @manufacturers=Manufacturer.all
@@ -30,9 +22,10 @@ end
 
 get '/stock/:id' do
   x = params[:id]
-  @stock=Stock.find(x)
+  @stock = Stock.find(x)
   erb(:view_item)
 end
+
 
 get '/stock/:id/update' do
   x = params[:id]
@@ -48,9 +41,18 @@ post '/stock/:id/update' do
   erb(:updated)
 end
 
-post '/stock/:id/deleted' do
-  x=params[:id]
-  @stock=Stock.new(x)
-  @stock.delete
-  erb(:deleted)
-end
+#
+# get '/stock/addstock' do
+#   erb(:addstock)
+# end
+#
+# post '/stock/addstock' do
+#   @stock=Stock.new(params)
+#   @stock.save
+# end
+# post '/stock/:id/deleted' do
+#   x=params[:id]
+#   stock=@stock.find(x)
+#   stock.delete(x)
+#   erb(:deleted)
+# end

@@ -38,7 +38,7 @@ class Stock
     return results.map{|item|Stock.new(item)}
   end
 
-  def self.find (id)#updated
+  def self.find(id) #updated
     sql='SELECT * FROM stock_items WHERE id=$1'
     values=[id]
     request=SqlRunner.run(sql,values)
@@ -64,26 +64,23 @@ class Stock
   def update #successful update of details
     sql='UPDATE stock_items SET (name,manufacturer_id,type,bsl,quantity,
     unit_cost,sell_price,description,url) = ($1,$2,$3,$4,$5,
-    $6,$7,$8,$9)WHERE id=$10'
-    values=[@name,@manufacturers_id,@type,@bsl,@quantity,@unit_cost,@sell_price,
-    @description,@url,@id]
-    SqlRunner.run(sql,values)
-  end
+      $6,$7,$8,$9)WHERE id=$10'
+      values=[@name,@manufacturers_id,@type,@bsl,@quantity,@unit_cost,@sell_price,
+        @description,@url,@id]
+        SqlRunner.run(sql,values)
+      end
 
 
-#ALL BASIC CRUD METHODS COMPLETE
+        #ALL BASIC CRUD METHODS COMPLETE
 
 
-def manu
-  sql="SELECT name FROM manufacturers WHERE id=$1"
-  values=[@manufacturer_id]
-  results=SqlRunner.run(sql,values)
-  hash=Manufacturer.new(results)
-  return hash.name
-end
-
-
-
+        def manu
+          sql="SELECT * FROM manufacturers WHERE id=$1"
+          values=[@manufacturer_id]
+          results=SqlRunner.run(sql,values)
+          manu=results.map{|result|Manufacturer.new(result)}
+          return manu[0].name
+        end
 
 
 
@@ -96,4 +93,10 @@ end
 
 
 
-end
+
+
+
+
+
+
+      end
