@@ -14,6 +14,16 @@ get '/stock' do
   erb(:stock)
 end
 
+get '/stock/addstock' do
+  erb(:addstock)
+end
+
+post '/stock/addstock' do
+  @new_item=Stock.new(params)
+  @new_item.save
+  redirect(:stock)
+end
+
 
 get '/manufacturers' do
   @manufacturers=Manufacturer.all
@@ -46,11 +56,8 @@ post '/stock/:id/deleted' do
   erb(:deleted)
 end
 
-#
-# get '/stock/addstock' do
-#   erb(:addstock)
-# end
-#
+
+
 # post '/stock/addstock' do
 #   @stock=Stock.new(params)
 #   @stock.save
