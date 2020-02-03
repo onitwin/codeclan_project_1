@@ -34,11 +34,16 @@ get '/stock/:id/update' do
 end
 
 post '/stock/:id/update' do
-  x=params[:id]
-  @stock=Stock.new(x)
-  @stock.id=params[:id]
-  @stock.update
+  stock=Stock.new(params)
+  stock.update
   erb(:updated)
+end
+
+post '/stock/:id/deleted' do
+  stock_id=params[:id]
+  @stock=Stock.find(stock_id)
+  @stock.delete
+  erb(:deleted)
 end
 
 #

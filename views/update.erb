@@ -12,6 +12,9 @@
   <label for ='type'>Item Type</label>
   <input id='type' type='text' name='type' value='<%=@stock.type%>'>
   <br>
+  <label for='bsl'>Basic Stock Level</label>
+  <input id='bsl' type='number' min='0' name='bsl' value='<%=@stock.bsl%>'>
+  <br>
   <label for='quantity'>Quantity Held</label>
   <input id='quantity' type='number' min='0' name='quantity' value='<%=@stock.quantity%>'>
   <br>
@@ -27,6 +30,6 @@
   <label for='url'>URL</label>
   <input id='url' type='text' name='url' value='<%=@stock.url%>'>
   <br>
-  <input type='submit' value='SUBMIT CHANGES'
+  <input type='submit' value='SUBMIT CHANGES'>
 
 </form>
