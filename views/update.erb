@@ -1,4 +1,5 @@
-<h1>PLACEHOLDER TEXT- have checked and item details have loaded</h1>
+<h1>Enter Details to update</h1>
+<h2>Only enter in fields that require updating</h2>
 
 <form method='post' action="/stock/<%=@stock.id%>/update">
   <label for="name">Update Item Name</label>
@@ -12,7 +13,7 @@
   <input id='type' type='text' name='type' value='<%=@stock.type%>'>
   <br>
   <label for='quantity'>Quantity Held</label>
-  <input id='quantity' type='numbers' min='0' name='quantity' value='<%=@stock.quantity%>'>
+  <input id='quantity' type='number' min='0' name='quantity' value='<%=@stock.quantity%>'>
   <br>
   <label for 'unit cost'>Cost Per Unit</label>
   <input id='unit cost' type='text' name='unit_cost' value='<%=@stock.unit_cost%>'>
@@ -27,4 +28,5 @@
   <input id='url' type='text' name='url' value='<%=@stock.url%>'>
   <br>
   <input type='submit' value='SUBMIT CHANGES'
+
 </form>

@@ -74,13 +74,13 @@ class Stock
 #ALL BASIC CRUD METHODS COMPLETE
 
 
-# def manu
-#   sql="SELECT name FROM manufacturers WHERE id=$1"
-#   values=[@manufacturer_id]
-#   results=SqlRunner.run(sql,values)
-#   hash=Manufacturer.new(results)
-#   return hash.name
-# end
+def manu
+  sql="SELECT name FROM manufacturers WHERE id=$1"
+  values=[@manufacturer_id]
+  results=SqlRunner.run(sql,values)
+  hash=Manufacturer.new(results)
+  return hash.name
+end
 
 
 
