@@ -11,17 +11,19 @@ end
 
 get '/stock' do #displays all stock
   @stock=Stock.all
+  @manufacturer=Manufacturer.all
   erb(:stock)
 end
 
 get '/stock/addstock' do #links to 'add stock' page
+  @manufacturer=Manufacturer.all
   erb(:addstock)
 end
 
 post '/stock/addstock' do #SHOULD add stock item but doesnt
   @new_item=Stock.new(params)
   @new_item.save
-  binding.pry
+  # erb(:index)
   redirect to '/stock'
 end
 

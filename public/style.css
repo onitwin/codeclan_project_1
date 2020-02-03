@@ -6,7 +6,9 @@ li{
   display:inline-block;
   margin-left: 30px;
 }
-
+nav{
+  background-color: steelblue;
+}
 h3{
   border:3pt solid black;
   overflow: scroll;

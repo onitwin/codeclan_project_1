@@ -1,10 +1,15 @@
-<h1>ADD NEW STOCK ITEM BELOW<h1>
-  <form method='post' action='./stock/addstock'>
+
+<h1>ADD NEW STOCK ITEM BELOW</h1>
+  <form method='post' action='/stock/addstock'>
     <label for='item'>Item Name</label>
     <input id='item' type='text' name='name'>
     <br>
     <label for='manufacturer id'>Manufacturer</label>
-    <input id='manufacturer' type='text' name='manufacturer'>
+    <select id='manufacturer id' name='manufacturer_id'>
+      <% for manufacturer in @manufacturer%>
+      <option value='<%=manufacturer.id%>'><%=manufacturer.name%></option>
+      <% end %>
+    </select>
     <br>
     <label for='type'>Item Type</label>
     <input id='type' type='text' name='type'>
@@ -27,6 +32,6 @@
     <label for='url'>URL for Image</label>
     <input id='url' type='text' name='url'>
     <br>
-    <input type='submit' value ='Submit New Item'
+    <input type='submit' value ='Submit New Item'/>
 
   </form>
