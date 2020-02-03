@@ -79,7 +79,7 @@ class Stock
           values=[@manufacturer_id]
           results=SqlRunner.run(sql,values)
           manu=results.map{|result|Manufacturer.new(result)}
-          return manu[0].name
+          return manu
         end
 
 

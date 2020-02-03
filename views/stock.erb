@@ -18,7 +18,11 @@
     <td><%=stock.name %></td>
     <td><%=stock.manufacturer_id%></td>
     <td><%=stock.type%></td>
+    <% if stock.quantity < stock.bsl %>
+    <td style='background-color:red'><%=stock.quantity%></td>
+    <%else%>
     <td><%=stock.quantity%></td>
+    <%end%>
     <td><%=stock.unit_cost%></td>
     <td><%=stock.sell_price%></td>
     <td><a href='/stock/<%=stock.id%>'>View Item Detail</td>
