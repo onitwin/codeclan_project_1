@@ -26,49 +26,49 @@ class Stock
     unit_cost,sell_price,description,url) VALUES($1,$2,$3,$4,$5,$6,$7,$8,$9) RETURNING id"
     values=[@name,@manufacturer_id,@type,@bsl,@quantity,@unit_cost,@sell_price,
       @description,@url]
-    results=SqlRunner.run(sql,values)
-    @id=results.first['id'].to_i
-  end
+      results=SqlRunner.run(sql,values)
+      @id=results.first['id'].to_i
+    end
 
-  #READ METHODS
+    #READ METHODS
 
-  def self.all #success- returns all items from stock
-    sql='SELECT * FROM stock_items'
-    results=SqlRunner.run(sql)
-    return results.map{|item|Stock.new(item)}
-  end
+    def self.all #success- returns all items from stock
+      sql='SELECT * FROM stock_items'
+      results=SqlRunner.run(sql)
+      return results.map{|item|Stock.new(item)}
+    end
 
-  def self.find(id) #updated
-    sql='SELECT * FROM stock_items WHERE id=$1'
-    values=[id]
-    request=SqlRunner.run(sql,values)
-    result=Stock.new(request.first)
-    return result
-  end
+    def self.find(id) #updated
+      sql='SELECT * FROM stock_items WHERE id=$1'
+      values=[id]
+      request=SqlRunner.run(sql,values)
+      result=Stock.new(request.first)
+      return result
+    end
 
-  #DELETE METHODS
+    #DELETE METHODS
 
-  def self.delete_all #succesful- deletes all items from stock
-    sql='DELETE FROM stock_items'
-    SqlRunner.run(sql)
-  end
+    def self.delete_all #succesful- deletes all items from stock
+      sql='DELETE FROM stock_items'
+      SqlRunner.run(sql)
+    end
 
-  def delete #successful- deletes single item from stock
-    sql='DELETE FROM stock_items WHERE id=$1'
-    values=[@id]
-    SqlRunner.run(sql,values)
-  end
+    def delete #successful- deletes single item from stock
+      sql='DELETE FROM stock_items WHERE id=$1'
+      values=[@id]
+      SqlRunner.run(sql,values)
+    end
 
-  #UPDATE METHOD
+    #UPDATE METHOD
 
-  def update #successful update of details
-    sql='UPDATE stock_items SET (name,manufacturer_id,type,bsl,quantity,
-    unit_cost,sell_price,description,url) = ($1,$2,$3,$4,$5,
-      $6,$7,$8,$9)WHERE id=$10'
-      values=[@name,@manufacturers_id,@type,@bsl,@quantity,@unit_cost,@sell_price,
-        @description,@url,@id]
-        SqlRunner.run(sql,values)
-      end
+    def update #successful update of details
+      sql='UPDATE stock_items SET (name,manufacturer_id,type,bsl,quantity,
+      unit_cost,sell_price,description,url) = ($1,$2,$3,$4,$5,
+        $6,$7,$8,$9)WHERE id=$10'
+        values=[@name,@manufacturers_id,@type,@bsl,@quantity,@unit_cost,@sell_price,
+          @description,@url,@id]
+          SqlRunner.run(sql,values)
+        end
 
 
         #ALL BASIC CRUD METHODS COMPLETE
@@ -82,6 +82,12 @@ class Stock
           return manu
         end
 
+        def markup
+          first=@sell_price-@unit_cost
+          second=first/@unit_cost
+          result=second*100
+          return result.round(2)
+        end
 
 
 

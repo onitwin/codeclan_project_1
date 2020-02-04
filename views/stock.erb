@@ -9,6 +9,7 @@
     <th>STOCK-ON-HAND</th>
     <th>UNIT COST</th>
     <th>SELL PRICE</th>
+    <th>MARKUP</th>
     <th>VIEW ITEM</th>
     <th>DELETE ITEM</th>
   </tr>
@@ -24,6 +25,7 @@
     <%end%>
     <td><%=stock.unit_cost%></td>
     <td><%=stock.sell_price%></td>
+    <td><%=stock.markup%> %</td>
     <td><a href='/stock/<%=stock.id%>'>View Item Detail</td>
       <form method='post' action='stock/<%=stock.id%>/deleted'>
         <td><input type='submit' value='DELETE ITEM'</td>
