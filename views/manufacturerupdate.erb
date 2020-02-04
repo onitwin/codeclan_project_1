@@ -1,0 +1,26 @@
+<h1>Update Manufacturer</h1>
+<P><%=@manufacturer.name%></p>
+<p><%=@manufacturer.id%></p>
+<p><%=@manufacturer.active%></p>
+<h5>Code above refers to @manufacturer (single)</h5>
+
+<h5>Code below refers to @manufacturers (plural)</h5>
+
+<% for item in @manufacturers%>
+<p><%=item.name%></p>
+<p><%=item.active%></p>
+<% end %>
+<p> above code to be removed- presence shows all items accessible</p>
+
+<form method='post' action='/manufacturer/<%=@manufacturer.id%>/update'>
+  <label for='name'>Name of Manufacturer</label>
+  <input id='name' type='text' name='<%=@manufacturer.name%>' value='<%=@manufacturer.name%>'>
+  <br>
+  <label for='active'>Active/Inactive</label>
+  <select id='active' name='active'>
+    <option value='true'>True</option>
+    <option value='false'>False</option>
+  </select>
+  <br>
+  <input type='submit' value='SUBMIT CHANGES'>
+</form>

@@ -1,7 +1,22 @@
 <h1>Manufacturers</h1>
-
-<% for manufacturer in @manufacturers%>
-
-<h3>Manufacturer: <%=manufacturer.name%></h3>
-
-<% end %>
+<table>
+  <tr>
+    <th>MANUFACTURER</th>
+    <th>ACTIVE/INACTIVE</th>
+    <th>UPDATE</th>
+    <th>DELETE</th>
+  </tr>
+  <% for manufacturer in @manufacturers%>
+  <tr>
+    <td><%=manufacturer.name%></td>
+    <td><%=manufacturer.active%></td>
+    <td><a href='/manufacturer/<%=manufacturer.id%>/update'>Update</a></td>
+    <td><form method='post' action='manufacturers/<%=manufacturer.id%>/delete'>
+      <input type="submit" value='DELETE MANUFACTURER'>
+        </form>
+    </td>
+  </tr>
+  <% end %>
+</table>
+<br>
+<a href='/addmanufacturer'>Add Manufacturer</a>

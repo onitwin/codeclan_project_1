@@ -29,11 +29,11 @@ class Manufacturer
     return results.map{|manufacturer|Manufacturer.new(manufacturer)}
   end
 
-  def find #success- returns single object matching id that was called
+  def self.find(id)#success- returns single object matching id that was called
     sql='SELECT * FROM manufacturers WHERE id=$1'
-    values=[@id]
-    result=SqlRunner.run(sql,values)
-    return result
+    values=[id]
+    result=SqlRunner.run(sql,values)[0]
+    return Manufacturer.new(result)
   end
 
   def find_by_name #success- returns ONLY results from table matching a single manufacturer
