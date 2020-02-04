@@ -14,8 +14,8 @@ class Stock
     @quantity=options['quantity'].to_i
     @unit_cost=options['unit_cost'].to_f
     @sell_price=options['sell_price'].to_f
-    @description='DESCRIPTION TO GO HERE-PLEASE UPDATE' #add after objext creation
-    @url='URL TO GO HERE- SOURCE AND UPDATE'# add IMAGE url here
+    @description=options['description']
+    @url=options['url']
 
   end
 

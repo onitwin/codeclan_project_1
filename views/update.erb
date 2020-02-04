@@ -7,7 +7,11 @@
   value= "<%=@stock.name%>">
   <br>
   <label for='manufacturer'> Update Manufacturer</label>
-  <input id='manufacturer' type='text' name='manufacturer' value='<%=@stock.manufacturer_id%>'>
+  <select id='manufacturer' name='manufacturer_id'>
+    <% for manufacturer in @manufacturer%>
+    <option value='<%=manufacturer.id%>'><%=manufacturer.name%></option>
+    <% end %>
+    </select>
   <br>
   <label for ='type'>Item Type</label>
   <input id='type' type='text' name='type' value='<%=@stock.type%>'>

@@ -43,6 +43,7 @@ end
 get '/stock/:id/update' do #links to update page and sends it the individual item of stock to be updated
   x = params[:id]
   @stock=Stock.find(x)
+  @manufacturer=Manufacturer.all
   erb(:update)
 end
 
