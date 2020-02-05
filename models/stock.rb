@@ -65,7 +65,7 @@ class Stock
       sql='UPDATE stock_items SET (name,manufacturer_id,type,bsl,quantity,
       unit_cost,sell_price,description,url) = ($1,$2,$3,$4,$5,
         $6,$7,$8,$9)WHERE id=$10'
-        values=[@name,@manufacturers_id,@type,@bsl,@quantity,@unit_cost,@sell_price,
+        values=[@name,@manufacturer_id,@type,@bsl,@quantity,@unit_cost,@sell_price,
           @description,@url,@id]
           SqlRunner.run(sql,values)
         end
