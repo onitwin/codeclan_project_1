@@ -1,15 +1,14 @@
 <section id='details'>
-<p>Name:<%=@stock.name%></p>
-<p>Manufacturer:<%=@stock.manufacturer_id%></p>
-<p>Type:<%=@stock.type%></p>
-<p>Stock-on-hand:<%=@stock.quantity%></p> 
-<p>Basic Stock Level:<%=@stock.bsl%></p>
-<p>Cost to company per unit:£<%=@stock.unit_cost%></p>
-<p>Customer purchase price:£<%=@stock.sell_price%></p>
+  <img  id='itempage' src="<%=@stock.url%>">
+  <p><a href='/stock/<%=@stock.id%>/update'>UPDATE</a></p>
+  <p>Name:<%=@stock.name%></p>
+  <p>Manufacturer:<%=@stock.manufacturer_id%></p>
+  <p>Type:<%=@stock.type%></p>
+  <p>Stock-on-hand:<%=@stock.quantity%></p>
+  <p>Basic Stock Level:<%=@stock.bsl%></p>
+  <p>Cost to company per unit:£<%=@stock.unit_cost%></p>
+  <p>Customer purchase price:£<%=@stock.sell_price%></p>
 </section>
-
-<img src="<%=@stock.url%>">
-<p><a href='/stock/<%=@stock.id%>/update'>UPDATE</a></p>
 <article>
   <h4><%=@stock.description%></h4>
 </article>
