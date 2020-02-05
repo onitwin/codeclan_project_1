@@ -85,7 +85,7 @@ get '/addmanufacturer' do
 end
 
 post'/addmanufacturer' do
-  new_manufacturer=Manufacturer.new(params)
-  new_manufacturer.save
-  erb (:manufacturers)
+  @new_manufacturer=Manufacturer.new(params)
+  @new_manufacturer.save
+  redirect to ('/manufacturers')
 end
