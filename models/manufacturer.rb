@@ -7,7 +7,7 @@ class Manufacturer
   def initialize(options)
     @id=options['id'].to_i if options['id']
     @name=options['name']
-    @active=true
+    @active=options['active']
   end
 
 

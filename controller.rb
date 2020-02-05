@@ -60,7 +60,7 @@ post '/stock/:id/deleted' do #deletes item and takes user to page to indicates s
   erb(:deleted)
 end
 
-post '/manufacturer/:id/delete' do
+post '/manufacturer/:id/delete' do #working!!
   manufacturer_id=params[:id]
   manu=Manufacturer.find(manufacturer_id)
   manu.delete
@@ -77,7 +77,7 @@ end
 post '/manufacturer/:id/update' do
   manu=Manufacturer.new(params)
   manu.update
-  erb(:manufacturers)
+  redirect to('/manufacturers')
 end
 
 get '/addmanufacturer' do
