@@ -89,6 +89,13 @@ class Stock
           return result.round(2)
         end
 
+        def find_by_name #success- returns ONLY results from table matching a single manufacturer
+          sql='SELECT name FROM manufacturers WHERE id=$1'
+          values=[@manufacturer_id]
+          result=SqlRunner.run(sql,values)
+          return result[0]['name']
+        end
+
 
 
 

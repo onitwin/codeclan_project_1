@@ -16,7 +16,7 @@
   <% for stock in @stock%>
   <tr>
     <td><%=stock.name %></td>
-    <td><%=stock.manufacturer_id%></td>
+    <td><%=stock.find_by_name%></td>
     <td><%=stock.type%></td>
     <% if stock.quantity < stock.bsl %>
     <td style='background-color:red'><%=stock.quantity%></td>
@@ -39,5 +39,3 @@
 
 
 <h1><a href='/stock/addstock'>ADD STOCK</a></h1>
-
-  
