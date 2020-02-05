@@ -7,8 +7,10 @@
     <label for='manufacturer id'>Manufacturer</label>
     <select id='manufacturer id' name='manufacturer_id'>
       <% for manufacturer in @manufacturer%>
-      <option value='<%=manufacturer.id%>'><%=manufacturer.name%></option>
-      <% end %>
+      <% if manufacturer.active != "f" %>
+        <option value='<%=manufacturer.id%>'><%=manufacturer.name%></option>
+      <%end%>
+      <%end%>
     </select>
     <br>
     <label for='type'>Item Type</label>
